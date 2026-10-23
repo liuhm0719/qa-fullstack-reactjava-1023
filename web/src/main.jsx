@@ -16,7 +16,7 @@ function App() {
   }, []);
   return (
     <main style={{ fontFamily: 'sans-serif', padding: '2rem' }}>
-      <h1>qa-fullstack reactgo</h1>
+      <h1>qa-fullstack reactjava</h1>
       <p>API_BASE={JSON.stringify(API_BASE)}</p>
       <p>backend says: <b>{msg}</b></p>
       {err && <p style={{ color: 'crimson' }}>error: {err}</p>}

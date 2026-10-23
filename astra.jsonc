@@ -1,7 +1,7 @@
 {
   "apiVersion": "astra/v1",
   "kind": "Application",
-  "metadata": { "name": "qa-fullstack-reactgo-1023" },
+  "metadata": { "name": "qa-fullstack-reactjava-1023" },
   "spec": {
     "components": {
       "web": {

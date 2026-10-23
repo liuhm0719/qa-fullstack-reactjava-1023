@@ -1,10 +1,11 @@
-FROM golang:1.22-alpine AS build
+FROM maven:3.9-eclipse-temurin-21 AS build
 WORKDIR /src
-COPY go.mod ./
-COPY main.go ./
-RUN CGO_ENABLED=0 go build -o /out/app .
+COPY pom.xml ./
+RUN mvn -q dependency:go-offline
+COPY src ./src
+RUN mvn -q package -DskipTests
 
-FROM alpine:3.20
-COPY --from=build /out/app /app
+FROM eclipse-temurin:21-jre-alpine
+COPY --from=build /src/target/fullstack-api-1.0.0.jar /app.jar
 EXPOSE 8080
-CMD ["/app"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
